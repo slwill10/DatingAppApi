@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿#nullable disable
+
+using System.ComponentModel.DataAnnotations;
 
 namespace API.Entities;
 
@@ -9,7 +11,7 @@ public class AppUser
 
     public string UserName { get; set;}
 
-    public byte[] PassowordHash { get; set; }
+    public byte[]  PasswordHash { get; set; }
 
-    public byte[] passwordSalt { get; set;}
+    public byte[] PasswordSalt { get; set;}
 }

@@ -1,4 +1,6 @@
-﻿using API.Entities;
+﻿#nullable disable
+
+using API.Entities;
 using Microsoft.EntityFrameworkCore;
 
 

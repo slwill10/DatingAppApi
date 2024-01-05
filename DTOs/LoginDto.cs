@@ -1,3 +1,5 @@
+#nullable disable
+
 namespace API.Entities;
 
 public class LoginDto

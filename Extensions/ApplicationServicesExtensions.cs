@@ -1,4 +1,6 @@
-﻿using API.Data;
+﻿#nullable disable
+
+using API.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace API;

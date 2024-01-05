@@ -1,3 +1,5 @@
+#nullable disable
+
 namespace API.DTOs
 {
 public class UserDto 

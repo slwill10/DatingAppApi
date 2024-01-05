@@ -2,16 +2,19 @@
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace API.Data.Migrations
+namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240104111414_NomeDaMigracao")]
+    partial class NomeDaMigracao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.14");
@@ -25,11 +28,11 @@ namespace API.Data.Migrations
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("BLOB");
 
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("BLOB");
+
                     b.Property<string>("UserName")
                         .HasColumnType("TEXT");
-
-                    b.Property<byte[]>("passwordSalt")
-                        .HasColumnType("BLOB");
 
                     b.HasKey("Id");
 
