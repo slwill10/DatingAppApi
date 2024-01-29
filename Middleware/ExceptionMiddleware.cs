@@ -12,7 +12,7 @@ public class ExceptionMiddleware
     public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger,
     IHostEnvironment env)
     {
-        _env = env;
+        _next = next;
         _logger = logger;
         _env = env;
     }
@@ -25,7 +25,7 @@ public class ExceptionMiddleware
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError(ex, ex.Message);
             context.Response.ContentType = "Aplication/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
@@ -38,7 +38,6 @@ public class ExceptionMiddleware
             var json = JsonSerializer.Serialize(response, options);
 
             await context.Response.WriteAsync(json);
-
         }
     }
 }
